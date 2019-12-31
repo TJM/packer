@@ -132,6 +132,8 @@ func (c *config) discoverExternalComponents(path string) error {
 		return err
 	}
 	for plugin, path := range pluginPaths {
+		plugin := plugin
+		path := path
 		c.Builders[plugin] = func() (packer.Builder, error) {
 			return c.pluginClient(path).Builder()
 		}
@@ -148,6 +150,8 @@ func (c *config) discoverExternalComponents(path string) error {
 		return err
 	}
 	for plugin, path := range pluginPaths {
+		plugin := plugin
+		path := path
 		c.PostProcessors[plugin] = func() (packer.PostProcessor, error) {
 			return c.pluginClient(path).PostProcessor()
 		}
@@ -164,6 +168,8 @@ func (c *config) discoverExternalComponents(path string) error {
 		return err
 	}
 	for plugin, path := range pluginPaths {
+		plugin := plugin
+		path := path
 		c.Provisioners[plugin] = func() (packer.Provisioner, error) {
 			return c.pluginClient(path).Provisioner()
 		}
